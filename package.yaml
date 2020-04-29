@@ -1,0 +1,66 @@
+name: mortgage-utils
+version: '0.0.0'
+github: "jship/mortgage-utils"
+license: MIT
+author: "Jason Shipman"
+maintainer: "Jason Shipman"
+synopsis: Fixed-rate mortgage utilities.
+description: Tiny library for calculating things regarding fixed-rate mortgages.
+category: Other
+
+extra-source-files:
+- CHANGELOG.md
+- LICENSE.md
+- package.yaml
+- README.md
+
+library:
+  dependencies:
+  - base
+  - currencies
+  - optparse-applicative
+  source-dirs: library
+  ghc-options:
+    - -Wall
+    - -Werror
+    - -fwarn-tabs
+    - -Wincomplete-uni-patterns
+    - -O2
+    - -eventlog
+
+executables:
+  mortgage-utils:
+    source-dirs: executable
+    main: Main.hs
+    dependencies:
+    - base
+    - mortgage-utils
+    ghc-options:
+    - -Wall
+    - -Werror
+    - -fwarn-tabs
+    - -Wincomplete-uni-patterns
+    - -O2
+    - -rtsopts
+    - -threaded
+    - -with-rtsopts=-N
+    - -eventlog
+
+tests:
+  mortgage-utils-test-suite:
+    source-dirs: test-suite
+    main: Driver.hs
+    dependencies:
+    - base
+    - hspec
+    - mortgage-utils
+    ghc-options:
+    - -Wall
+    - -Werror
+    - -fwarn-tabs
+    - -Wincomplete-uni-patterns
+    - -O2
+    - -rtsopts
+    - -threaded
+    - -with-rtsopts=-N
+    - -eventlog
